@@ -1,8 +1,11 @@
 from django.shortcuts import render
-
+from .models import Category
 
 def index(request):
-    context_dict = {'boldmessage': "Olá BSI6, este texto veio da view!"}
+    category_list = Category.objects.order_by('-likes')[:5]
+    # print('Categorias: ', len(category_list), ':', category_list)
+
+    context_dict = {'categories':category_list}
     return render(request, 'rango/index.html', context=context_dict)
 
 
