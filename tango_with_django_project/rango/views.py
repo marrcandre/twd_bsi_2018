@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from .models import Category
+from .models import Category, Page
+from django.http import HttpResponse
 
 def index(request):
     category_list = Category.objects.order_by('-likes')[:5]
@@ -12,3 +13,18 @@ def index(request):
 def about(request):
     context_dict = {'autor': 'Marco André Mendes'}
     return render(request, 'rango/about.html', context=context_dict)
+
+def show_category(request, category_name_slug):
+    context_dict = {}
+    try:
+        category = Category.objects.get(slug=category_name_slug)
+        pages = Page.objects.filter(category=category)
+        context_dict['pages'] = pages
+        context_dict['category'] = category
+    except Category.DoesNotExist:
+        context_dict['category'] = None
+        context_dict['pages'] = None
+
+    print(context_dict)
+    return HttpResponse(context_dict)
+    # return render(request, 'rango/category.html', context_dict)
