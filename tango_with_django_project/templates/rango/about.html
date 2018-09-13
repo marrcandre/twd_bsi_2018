@@ -13,11 +13,10 @@
     <img src="{% static "images/rango2.jpg" %}"
          alt="Picture of Rango" />
     <br/>
-    <img src="/media/rango_cartaz.jpg""
-    alt="Picture of Rango" />
+    <img src="/media/rango_cartaz.jpg" alt="Picture of Rango" />
     <br/>
     <hr>
-    <a href="/rango/">Home</a>
+    <a href="{% url 'index' %}">Home</a>
     <br/>
     Essa página foi criada por {{ autor }}
 </div>
