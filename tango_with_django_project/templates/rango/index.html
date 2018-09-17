@@ -10,6 +10,7 @@
     Olá parceiro! <br />
 </div>
 
+<h2>Categorias mais curtidas</h2>
 <div>
     {% if categories %}
         <ol>
@@ -20,6 +21,19 @@
         </ol>
     {% else %}
         <strong>Não há categorias cadastradas.</strong>
+    {% endif %}
+</div>
+
+<h2>Páginas mais acessadas</h2>
+<div>
+    {% if pages %}
+        <ol>
+            {% for page in pages %}
+                <li><a href="{{ page.url }}"> {{ page.title }}</a> ({{ page.views }})</li>
+            {% endfor %}
+        </ol>
+    {% else %}
+        <strong>Não há páginas cadastradas.</strong>
     {% endif %}
 </div>
 
