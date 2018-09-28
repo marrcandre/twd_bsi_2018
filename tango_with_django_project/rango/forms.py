@@ -1,7 +1,7 @@
 from django import forms
 from .models import Category, Page
 
-class CategoryForm(forms.ModelForm):
+class PageForm(forms.ModelForm):
     name = forms.CharField(max_length=128,
                            help_text="Categoria: ")
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)

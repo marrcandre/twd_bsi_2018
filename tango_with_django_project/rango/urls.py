@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from . import views
-from .views import Add_Category
+from .views import Add_Category, Add_Page
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
@@ -10,6 +10,6 @@ urlpatterns = [
     url(r'^category/(?P<category_name_slug>[\w\-]+)/$',
         views.show_category, name='show_category'),
     url(r'^(?P<category_name_slug>[\w\-]+)/add_page/$',
-        views.add_page, name='add_page'),
+        Add_Page.as_view(), name='add_page'),
 
 ]
