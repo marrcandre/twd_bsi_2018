@@ -1,54 +1,39 @@
-<!DOCTYPE html>
+{% extends 'rango/base.html' %}
 {% load staticfiles %}
-<html>
-<head>
-    <title>Rango</title>
-</head>
-<body>
-<h1>Rango diz...</h1>
-<div>
-    Olá parceiro! <br />
-</div>
 
-<h2>Categorias mais curtidas</h2>
-<div>
-    {% if categories %}
-        <ol>
-            {% for category in categories %}
-{#                <li><a href="/rango/category/{{ category.slug }}"> {{ category.name }}</a> ({{ category.likes }})</li>#}
-                <li><a href="{% url 'show_category' category.slug %}"> {{ category.name }}</a> ({{ category.likes }})</li>
-            {% endfor %}
-        </ol>
-    {% else %}
-        <strong>Não há categorias cadastradas.</strong>
-    {% endif %}
-</div>
+{% block body_block %}
+    <h1>Rango diz...</h1>
+    <div>
+        Olá parceiro! <br />
+    </div>
 
-<h2>Páginas mais acessadas</h2>
-<div>
-    {% if pages %}
-        <ol>
-            {% for page in pages %}
-                <li><a href="{{ page.url }}"> {{ page.title }}</a> ({{ page.views }})</li>
-            {% endfor %}
-        </ol>
-    {% else %}
-        <strong>Não há páginas cadastradas.</strong>
-    {% endif %}
-</div>
+    <h2>Categorias mais curtidas</h2>
+    <div>
+        {% if categories %}
+            <ol>
+                {% for category in categories %}
+                    <li><a href="{% url 'show_category' category.slug %}"> {{ category.name }}</a> ({{ category.likes }})</li>
+                {% endfor %}
+            </ol>
+        {% else %}
+            <strong>Não há categorias cadastradas.</strong>
+        {% endif %}
+    </div>
 
-<div>
-    <img src="{% static "images/rango.jpg" %}"
-         alt="Picture of Rango" />
-    <br/>
-    <hr>
-{#    <a href="/rango/add_category">Adicionar Categoria</a><br />#}
-    <a href="{% url 'add_category' %}">Adicionar Categoria</a><br />
-    <a href="{% url 'about' %}">About</a><br />
-    <a href="/admin/">Admin</a><br />
+    <h2>Páginas mais acessadas</h2>
+    <div>
+        {% if pages %}
+            <ol>
+                {% for page in pages %}
+                    <li><a href="{{ page.url }}"> {{ page.title }}</a> ({{ page.views }})</li>
+                {% endfor %}
+            </ol>
+        {% else %}
+            <strong>Não há páginas cadastradas.</strong>
+        {% endif %}
+    </div>
 
-</div>
-</div>
-</div>
-</body>
-</html>
+    <div>
+        <img src="{% static "images/rango.jpg" %}" alt="Picture of Rango" /><br/>
+    </div>
+{% endblock body_block %}
