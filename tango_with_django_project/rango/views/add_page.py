@@ -2,12 +2,12 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.generic.base import View
-from ..forms import PageForm
+from ..forms import CategoryForm
 from ..models import Category
 
 
 class Add_Page ( View ):
-    form_class = PageForm
+    form_class = CategoryForm
     initial = {}
     template_name = 'rango/add_page.html'
 

@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.generic.base import View
 
-from ..forms import PageForm
+from ..forms import CategoryForm
 
 # def add_category(request):
 #     form = CategoryForm()
@@ -19,7 +19,7 @@ from ..forms import PageForm
 #     # return HttpResponse('Adcionar Categoria <br/> %s' %form)
 
 class Add_Category(View):
-    form_class = PageForm
+    form_class = CategoryForm
     initial = {}
     template_name = 'rango/add_category.html'
 
