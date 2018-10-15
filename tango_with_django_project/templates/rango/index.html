@@ -4,7 +4,9 @@
 {% block body_block %}
     <h1>Rango diz...</h1>
     <div>
-        {% if user.is_authenticated %}
+        {% if user.is_superuser %}
+            Olá chefe!
+        {% elif user.is_authenticated %}
             Olá {{ user.username }}!
         {% else %}
             Olá parceiro!
