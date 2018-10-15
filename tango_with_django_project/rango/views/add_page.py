@@ -2,11 +2,13 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.generic.base import View
+
+from .login_required import LoginRequiredMixin
 from ..forms import CategoryForm
 from ..models import Category
 
 
-class Add_Page ( View ):
+class Add_Page (LoginRequiredMixin, View ):
     form_class = CategoryForm
     initial = {}
     template_name = 'rango/add_page.html'

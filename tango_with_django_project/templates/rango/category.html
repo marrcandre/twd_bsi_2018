@@ -18,7 +18,9 @@
             {% else %}
                 <strong>Não há páginas nessa categoria.</strong>
             {% endif %}
-            <a href="{% url 'add_page' category.slug %}">Adicionar Página em {{ category.name }}</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'add_page' category.slug %}">Adicionar Página em {{ category.name }}</a>
+            {% endif %}
         {% else %}
             A categoria especificada não existe!
         {% endif %}

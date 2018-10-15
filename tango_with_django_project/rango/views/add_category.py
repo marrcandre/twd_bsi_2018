@@ -3,22 +3,11 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.generic.base import View
 
+from .login_required import LoginRequiredMixin
 from ..forms import CategoryForm
 
-# def add_category(request):
-#     form = CategoryForm()
-#
-#     if request.method == 'POST':
-#         form = CategoryForm(request.POST)
-#         if form.is_valid():
-#             form.save(commit=True)
-#             return HttpResponseRedirect(reverse('index'))
-#
-#     return render(request, 'rango/add_category.html', {'form': form})
-#     # print(form)
-#     # return HttpResponse('Adcionar Categoria <br/> %s' %form)
 
-class Add_Category(View):
+class Add_Category(LoginRequiredMixin, View):
     form_class = CategoryForm
     initial = {}
     template_name = 'rango/add_category.html'

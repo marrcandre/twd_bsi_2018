@@ -30,12 +30,13 @@
     <ul>
         {% if user.is_authenticated %}
             <li><a href="{% url 'restricted' %}">Página Restrita</a></li>
-            <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li><a href="{% url 'logout' %}">Sair</a></li>
+            <li><a href="{% url 'add_category' %}">Adicionar Nova Categoria</a></li>
+
         {% else %}
             <li><a href="{% url 'login' %}">Entrar</a></li>
             <li><a href="{% url 'register' %}">Registrar-se</a></li>
         {% endif %}
-        <li><a href="{% url 'add_category' %}">Adicionar Nova Categoria</a></li>
         <li><a href="{% url 'about' %}">About</a></li>
         <li><a href="{% url 'index' %}">Index</a></li>
         <li><a href="/admin/">Admin</a></li>
