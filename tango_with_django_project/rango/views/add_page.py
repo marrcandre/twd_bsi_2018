@@ -4,12 +4,12 @@ from django.shortcuts import render
 from django.views.generic.base import View
 
 from .login_required import LoginRequiredMixin
-from ..forms import CategoryForm
+from ..forms import PageForm
 from ..models import Category
 
 
 class Add_Page (LoginRequiredMixin, View ):
-    form_class = CategoryForm
+    form_class = PageForm
     initial = {}
     template_name = 'rango/add_page.html'
 
@@ -30,7 +30,7 @@ class Add_Page (LoginRequiredMixin, View ):
         category = self.get_Category_or_None ( category_name_slug )
 
         form = self.form_class ( request.POST )
-        if form.is_valid ():
+        if not form.is_valid ():
             if category:
                 page = form.save ( commit=False )
                 page.category = category
