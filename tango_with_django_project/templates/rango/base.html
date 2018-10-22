@@ -2,6 +2,7 @@
 
 {% load staticfiles %}
 {% load rango_template_tags %}
+<!-- TODO colocar css e js estático -->
 
 <html lang="en">
 <head>
@@ -44,7 +45,7 @@
                 <li class="nav-item"> <a class="nav-link" href="{% url 'add_category' %}">Adicionar Nova Categoria</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{% url 'logout' %}">Sair</a></li>
             {% else %}
-                <li class="nav-item"> <a class="nav-link" href=""">Registrar-se</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'register' %}">Registrar-se</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{% url 'login' %}">Entrar</a></li>
             {% endif %}
         </ul>

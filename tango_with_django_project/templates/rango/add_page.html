@@ -1,5 +1,6 @@
 {% extends 'rango/base.html' %}
 {% load staticfiles %}
+{% load bootstrap_toolkit %}
 
 {% block title_block %}
     Adicionar Página
@@ -14,17 +15,9 @@
                     <a href="{% url 'show_category' category.slug %}"> {{ category.name }}</a>
                 </h2>
                 {% csrf_token %}
-                {% for hidden in form.hidden_fields %}
-                    {{ hidden }}
-                {% endfor %}
-                {% for field in form.visible_fields %}
-                    {{ field.errors }}
-                    {{ field.help_text }} <br/>
-                    {{ field }} <br/>
-                {% endfor %}
+                {{ form|as_bootstrap }}
                 <br/>
-                <button class="btn btn-primary"
-                        type="submit" name="submit">
+                <button class="btn btn-primary" type="submit" name="submit">
                     Criar página em {{category.name}}
                 </button>
             </form>

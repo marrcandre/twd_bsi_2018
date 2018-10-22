@@ -30,7 +30,7 @@ class Add_Page (LoginRequiredMixin, View ):
         category = self.get_Category_or_None ( category_name_slug )
 
         form = self.form_class ( request.POST )
-        if not form.is_valid ():
+        if form.is_valid ():
             if category:
                 page = form.save ( commit=False )
                 page.category = category
