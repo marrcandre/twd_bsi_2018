@@ -1,6 +1,10 @@
+#pasta media
+media/
+
 #migrations
 00*_*
 
+#Pasta do Pycharm
 .idea/
 
 # Byte-compiled / optimized / DLL files
