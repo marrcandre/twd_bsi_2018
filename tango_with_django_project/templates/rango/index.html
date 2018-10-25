@@ -14,8 +14,8 @@
 
         <h2> TODO:</h2>
     <ul>
-        <li> Modificar função de track página pra usar parametro e não GET</li>
-        <li> Mostrar views das categorias na index</li>
+        <li> Modificar função de track de página pra usar parâmetro na URL e não GET (ok)</li>
+        <li> Mostrar views das categorias na index (não ficou legal) </li>
         <li> Usar ícones de views e likes na index e na página de categorias</li>
         <li> Incrementar views de Categorias ao clicas numa categoria</li>
         <li> Ordenar corretamente as Categorias e views nas listagens </li>
@@ -32,6 +32,7 @@
                             <li class="list-group-item justify-content-between">
                                 <a href="{% url 'show_category' category.slug %}"> {{ category.name }}</a>
                                 <span class="badge badge-default badge-pill">{{ category.likes }}</span>
+{#                                <span class="badge badge-default badge-pill">{{ category.views }}</span>#}
                             </li>
                         {% endfor %}
                     </ul>
