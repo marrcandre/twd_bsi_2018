@@ -11,7 +11,8 @@ urlpatterns = [
     url(r'^login/$', views.user_login, name='login'),
     url(r'^logout/$', views.user_logout, name='logout'),
 
-    url(r'^goto/$', views.track_url, name='goto'),
+    # url(r'^goto/$', views.track_url, name='goto'),
+    url(r'^goto/(?P<page_id>[0-9]+)/$', views.track_url, name='goto'),
 
     url(r'^add_category/', Add_Category.as_view(), name='add_category'),
     # url(r'^add_category/', views.add_category, name='add_category'),
