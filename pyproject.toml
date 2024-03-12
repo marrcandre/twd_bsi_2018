@@ -7,11 +7,11 @@ authors = [
 ]
 dependencies = [
     "coverage==4.5.1",
-    "Django==4.0",
+    "Django>1.9.13",
     "django-bootstrap-toolkit==2.15.0",
     "Pillow==5.2.0",
 ]
-requires-python = ">=3.9"
+requires-python = ">=3.6"
 readme = "README.md"
 license = {text = "MIT"}
 
